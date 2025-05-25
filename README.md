@@ -1,1 +1,1 @@
-# Difference-aware Embedding Personalization (DEP)
+# Difference-aware Embedding-based Personalization (DEP)
