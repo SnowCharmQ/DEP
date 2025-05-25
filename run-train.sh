@@ -1,0 +1,1 @@
+FORCE_TORCHRUN=1 deepspeed model-train.py
