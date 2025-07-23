@@ -45,7 +45,7 @@ class PersonalDataset(torch.utils.data.Dataset):
             profile = self.main_dataset[idx]["profile"]
             prof_len = len(profile)
             profile = sorted(profile, key=lambda x: x["timestamp"], reverse=True)
-            user_emb = torch.load(f"../all_embeddings/{category}/{user_id}.emb", weights_only=True)
+            user_emb = torch.load(f"embeddings/{category}/{user_id}.emb", weights_only=True)
             user_emb = user_emb[:prof_len]
             user_emb = torch.flip(user_emb, dims=[0])
             for p in profile:

@@ -1,3 +1,4 @@
+import os
 import torch
 import pandas as pd
 from tqdm import tqdm
@@ -8,6 +9,9 @@ from datasets import load_dataset, concatenate_datasets, Dataset
 from data.personal_dataset import convert_to_dataset, PersonalDataset
 
 set_seed(30)
+
+if not os.path.exists("output"):
+    os.makedirs("output")
 
 categories = ["Books", "Movies_and_TV", "CDs_and_Vinyl"]
 dataset_len = [317, 1925, 1754]
@@ -74,7 +78,7 @@ new_tokens = [f"[HIS_TOKEN_{i}]" for i in range(8)] + \
     ["<his_token_start>", "<his_token_end>",
         "<diff_token_start>", "<diff_token_end>"]
 llm_tokenizer.add_special_tokens({"additional_special_tokens": new_tokens})
-llm_tokenizer.save_pretrained("data/tokenizer")
+llm_tokenizer.save_pretrained("output/DEP-tokenizer")
 
 user_his_emb_map = {}
 user_prof_mean_emb_map = {}
@@ -84,8 +88,7 @@ for sample in tqdm(test_dataset, desc="Pre-Processing the dataset"):
     category = sample["category"]
     profile = sample["profile"]
     profile = profile[:-2]
-    his_emb = torch.load(
-        f"../all_embeddings/{category}/{user_id}.emb", weights_only=True)
+    his_emb = torch.load(f"embeddings/{category}/{user_id}.emb", weights_only=True)
     his_emb = his_emb[:-2]
     prof_mean_emb = torch.mean(his_emb, dim=0)
     user_his_emb_map[f"{user_id}_{category}"] = his_emb

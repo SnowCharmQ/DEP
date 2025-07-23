@@ -47,7 +47,7 @@ def get_embeddings(all_txts):
 
 categories = ["Books", "Movies_and_TV", "CDs_and_Vinyl"]
 split = "test"
-output_dir = "../all_embeddings"
+output_dir = "embeddings"
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)

@@ -9,7 +9,7 @@ from transformers import set_seed
 from transformers import AutoTokenizer
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments
 
-from personal_model import Qwen2ForCausalPersonalLM
+from model.personal_model import DEPModel
 
 warnings.filterwarnings("ignore")
 
@@ -36,8 +36,8 @@ def print_trainable_parameters(model):
     )
 
 llm_model_name = "Qwen/Qwen2.5-7B-Instruct"
-llm_tokenizer = AutoTokenizer.from_pretrained("data/tokenizer")
-personal_model = Qwen2ForCausalPersonalLM.from_pretrained(
+llm_tokenizer = AutoTokenizer.from_pretrained("output/DEP-tokenizer")
+personal_model = DEPModel.from_pretrained(
     llm_model_name,
     device_map="cuda",
     torch_dtype=torch.bfloat16,

@@ -39,7 +39,7 @@ class SparseAutoEncoder(nn.Module):
         rho_loss = kl_div.mean()
         return recon_loss, rho_loss
 
-class Qwen2ForCausalPersonalLM(Qwen2ForCausalLM):
+class DEPModel(Qwen2ForCausalLM):
 
     def __init__(self, config):
         super().__init__(config)
@@ -164,12 +164,6 @@ class Qwen2ForCausalPersonalLM(Qwen2ForCausalLM):
         model.llm_tokenizer = tokenizer
         if training:
             for name, param in model.named_parameters():
-                if "align_mlp" in name or "sae" in name:
-                    param.requires_grad = True
-                    if 'weight' in name:
-                        torch.nn.init.xavier_uniform_(param)
-                    elif 'bias' in name:
-                        torch.nn.init.zeros_(param)
-                else:
+                if not "align_mlp" in name and not "sae" in name:
                     param.requires_grad = False
         return model
