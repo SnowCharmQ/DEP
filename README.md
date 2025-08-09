@@ -2,7 +2,7 @@
 
 <h1>Latent Inter-User Difference Modeling for LLM Personalization</h1>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2507.20849-b31b1b.svg)](https://arxiv.org/abs/2507.20849) [![HuggingFace space](https://img.shields.io/badge/🤗-DEP--model-yellow.svg)](https://huggingface.co/datasets/SnowCharmQ/DEP-model) <img src="https://img.shields.io/badge/License-MIT-blue" alt="license">
+[![arXiv](https://img.shields.io/badge/arXiv-2507.20849-b31b1b.svg)](https://arxiv.org/abs/2507.20849) [![HuggingFace space](https://img.shields.io/badge/🤗-DEP--model-yellow.svg)](https://huggingface.co/SnowCharmQ/DEP-model) <img src="https://img.shields.io/badge/License-MIT-blue" alt="license">
 
 <div>
     <a href="https://snowcharmq.github.io/" target="_blank">Yilun Qiu</a><sup>1</sup>,
