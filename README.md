@@ -23,7 +23,7 @@
 
 <br/>
 
-This is the implementation of the Difference-aware Embedding-based Personalization (DEP) method proposed in our paper.
+This is the implementation of the Difference-aware Embedding-based Personalization (DEP) method proposed in our paper accepted by **EMNLP 2025 Main Conference**.
 
 
 ![DEP Framework](fig/framework.jpg)
